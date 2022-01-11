@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.junaid.Models.UserAddressModel;
 import com.junaid.Models.UserModel;
 import com.junaid.Repo.UserRepo;
 
@@ -38,9 +39,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserModel putUser(long Userid, UserModel um) {
-		removeUser(Userid);
+		um.setUid(Userid);
+		//um.getUserAddressModel().setUid(Userid);
 		setUser(um);
 		return getUserbyId(Userid);
+	}
+
+	@Override
+	public UserAddressModel getUserAddressbyId(long parseLong) {
+		return getUserbyId(parseLong).getUserAddressModel();
 	}
   
 }

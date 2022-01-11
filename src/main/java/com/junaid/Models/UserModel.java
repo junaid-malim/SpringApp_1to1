@@ -1,5 +1,6 @@
 package com.junaid.Models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class UserModel {
 	@Column
 	String name;
 	
-	@OneToOne @MapsId
+	@OneToOne(cascade = CascadeType.ALL) @MapsId
 	UserAddressModel Address;
 
 	public UserModel() {

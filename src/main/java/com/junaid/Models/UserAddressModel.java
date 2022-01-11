@@ -11,6 +11,13 @@ import javax.persistence.Table;
 @Table(name = "useraddress")
 public class UserAddressModel {
 
+	@Override
+	public String toString() {
+		return "UserAddressModel [Uid=" + Uid + ", AddressLine1=" + AddressLine1 + ", AddressLine2=" + AddressLine2
+				+ ", locality=" + locality + ", city=" + city + ", pin=" + pin + ", district=" + district + ", country="
+				+ country + "]";
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	long Uid;
